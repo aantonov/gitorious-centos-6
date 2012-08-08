@@ -125,6 +125,7 @@ template "#{deploy_path}/config/database.yml" do
   variables   :host => db_host, :database => db_database, :username => db_user, :password => db_password
   notifies    :run, "execute[restart_gitorious_webapp]"
 end
+
 script "create gitorious database" do
   interpreter "bash"
   cwd deploy_path
@@ -139,6 +140,16 @@ script "create gitorious database" do
   not_if "mysql -e 'show databases' | grep -q #{db_database}"
 end
 
+template "#{deploy_path}/config/authentication.yml" do
+  source      "authentication.yml.erb"
+  owner       gitorious_user
+  group       gitorious_user
+  mode        "0644"
+  only_if do
+    node[:gitorious][:authentication][:disable_default]
+  end
+  notifies    :run, "execute[restart_gitorious_webapp]"
+end
 
 cookbook_file "#{deploy_path}/config/broker.yml" do
   source      "broker.yml"

@@ -1,0 +1,10 @@
+production:
+    disable_default: <%= node[:gitorious][:authentication][:disable_default] %>
+    methods:
+        - adapter: <%= node[:gitorious][:authentication][:methods][:adapter] %>
+          host: <%= node[:gitorious][:authentication][:methods][:host] %>
+          port: <%= node[:gitorious][:authentication][:methods][:port] %>
+          base_dn: <%= node[:gitorious][:authentication][:methods][:base_dn] %>
+          login_attribute: <%= node[:gitorious][:authentication][:methods][:login_attribute] %>
+          distinguished_name_template: <%= node[:gitorious][:authentication][:methods][:distinguished_name_template] %>
+          encryption: <%= node[:gitorious][:authentication][:methods][:encryption] %>
