@@ -9,7 +9,7 @@ yum -y install vixie-cron #crontab setup
 mkdir /etc/chef /root/chef-solo
 wget -O /etc/chef/solo.rb https://raw.github.com/aantonov/gitorious-centos-6/master/chef-gitorious-etc-solo.rb
 echo "gem: --no-rdoc --no-ri" > /etc/gemrc
-yum install -y ruby ruby-devel libruby gcc-c++ make ssl-cert git
+yum install -y ruby ruby-devel libruby gcc-c++ make ssl-cert git curl-devel libxml2 libxml2-devel libxslt libxslt-devel
 cd /tmp
 wget http://production.cf.rubygems.org/rubygems/rubygems-1.4.2.tgz
 tar zxf rubygems-1.4.2.tgz

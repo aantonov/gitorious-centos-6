@@ -1,31 +1,31 @@
 {
   "packages": { "dist_only": true },
-  "passenger": { "version": "3.0.7" },
+  "passenger": { "version": "3.0.14" },
   "gitorious": {
-    "host": "git.localhost",
+    "host": "gitorious.localhost",
     "git": {
       "url": "git://gitorious.org/gitorious/mainline.git",
-      "reference": "v2.0.2"
+      "reference": "v2.2.1"
     },  
     "db": {
       "user": "root",
       "host": "localhost",
       "database": "gitorious",
-      "password": "password123"
+      "password": "gitorious"
     },  
     "hide_http_clone_urls": "false",
     "locale": "en",
-    "support_email": "admin@localhost",
-    "notification_emails": "admin@localhost",
+    "support_email": "username@provider.com",
+    "notification_emails": "username@provider.com",
     "public_mode": "false",
     "only_admins_create": "false",
     "admin": {
-      "email": "admin@localhost",
-      "password": "password123"
+      "email": "username@provider.com",
+      "password": "admin"
     }
   },
   "mysql": { 
-	"server_root_password":  "password123", 
+	"server_root_password":  "gitorious",
 	"bind_address": "127.0.0.1"
    }, 
   "run_list": [ "recipe[vim]", "recipe[mysql::server]", "recipe[custom_environment]", "recipe[gitorious]" ]
